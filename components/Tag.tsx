@@ -3,10 +3,10 @@ import type { ComponentPropsWithoutRef, ElementType } from "react";
 type Corner = "top-left" | "top-right" | "bottom-left" | "bottom-right";
 
 const cornerClasses: Record<Corner, string> = {
-  "top-left": "top-0 left-0 border-r border-b",
-  "top-right": "top-0 right-0 border-l border-b",
-  "bottom-left": "bottom-0 left-0 border-r border-t",
-  "bottom-right": "bottom-0 right-0 border-l border-t",
+  "top-left": "top-0 left-0 rounded-tl-md rounded-br-md border-r border-b",
+  "top-right": "top-0 right-0 rounded-tr-md rounded-bl-md border-l border-b",
+  "bottom-left": "bottom-0 left-0 rounded-bl-md rounded-tr-md border-r border-t",
+  "bottom-right": "bottom-0 right-0 rounded-br-md rounded-tl-md border-l border-t",
 };
 
 type TagProps<T extends ElementType> = {
@@ -36,12 +36,12 @@ export function Tag<T extends ElementType = "div">({
 
   return (
     <Component
-      className={`group/tag relative border border-line/70 transition-colors hover:border-line ${className}`}
+      className={`group/tag relative rounded-md border border-border transition-colors hover:border-primary/60 ${className}`}
       {...rest}
     >
       <span
         aria-hidden
-        className={`pointer-events-none absolute z-10 select-none border-line/70 bg-panel px-3 py-1 font-mono text-xs text-muted transition-colors group-hover/tag:border-line group-hover/tag:text-accent-bright ${cornerClasses[corner]}`}
+        className={`pointer-events-none absolute z-10 select-none border-border bg-background px-3 py-1 font-mono text-xs text-muted-foreground transition-colors group-hover/tag:border-primary/60 group-hover/tag:text-primary ${cornerClasses[corner]}`}
       >
         {text}
       </span>
