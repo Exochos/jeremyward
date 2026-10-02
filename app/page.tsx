@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { Tag } from "@/components/Tag";
+import { WhoAmI } from "@/components/WhoAmI";
 
 // TODO: replace the placeholder content below with your real details.
 const experience = [
@@ -109,6 +110,8 @@ export default function Home() {
             ))}
           </div>
         </section>
+
+        <WhoAmI />
 
         {/* Contact */}
         <Tag as="footer" id="contact" data-section="contact" className="scroll-mt-28 bg-card p-8 pt-14">
